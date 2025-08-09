@@ -1,17 +1,17 @@
-import React from "react";
-
-function Search() {
+export default function Search({ searchTerm, onSearchChange, onSearchSubmit }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSearchSubmit?.(); // lab mentions onSubmit
+  }
   return (
-    <div className="searchbar">
-      <label htmlFor="search">Search Plants:</label>
+    <form onSubmit={handleSubmit}>
       <input
-        type="text"
-        id="search"
+        aria-label="search"
         placeholder="Type a name to search..."
-        onChange={(e) => console.log("Searching...")}
+        value={searchTerm}
+        onChange={e => onSearchChange(e.target.value)}
       />
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 }
-
-export default Search;
