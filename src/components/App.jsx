@@ -3,6 +3,7 @@ import Header from "./Header.jsx";
 import Search from "./Search.jsx";
 import NewPlantForm from "./NewPlantForm.jsx";
 import PlantList from "./PlantList.jsx";
+import '../index.css';
 
 const BASE_URL = "http://localhost:6001/plants";
 
@@ -47,17 +48,20 @@ const visiblePlants = plants.filter(p =>
 
 
 return (
-  <main>
+  <main className="app">
     <Header />
-    {error && <p role="alert">Error: {error}</p>}
-    <Search 
+     <NewPlantForm onCreate={handleCreate} />
+      <Search 
       searchTerm={searchTerm}
       onSearchChange={setSearchTerm}
     />
-    <NewPlantForm onCreate={handleCreate} />
      {loading
      ? <p>Loading...</p>
      : <PlantList plants={visiblePlants} onToggleSold={handleToggleSold} />}
+
+    {error && <p role="alert">Error: {error}</p>}
+   
+   
   </main>
 );
 }

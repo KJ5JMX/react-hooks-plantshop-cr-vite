@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../index.css';
 const BASE_URL = "http://localhost:6001/plants";
 
 export default function NewPlantForm({ onCreate }) {
@@ -21,6 +22,8 @@ export default function NewPlantForm({ onCreate }) {
   }
 
   return (
+    <div className="new-plant-form">
+      <h2>New Plant</h2>
     <form onSubmit={handleSubmit} aria-label="new-plant-form">
       <input
         placeholder="Plant name"
@@ -33,11 +36,13 @@ export default function NewPlantForm({ onCreate }) {
         onChange={(e) => setImage(e.target.value)}
       />
       <input
+        type="number" step="0.01"
         placeholder="Price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
       <button type="submit">Add Plant</button>
     </form>
+    </div>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import PlantCard from "./PlantCard.jsx";
+import '../index.css';
 
 function PlantList({ plants, onToggleSold }) {
    return (
-    <ul aria-label="plant-list">
+    <ul className="cards" aria-label="plant-list">
       {plants.map((p) => (
         <PlantCard key={p.id} plant={p} onToggleSold={onToggleSold} />
       ))}

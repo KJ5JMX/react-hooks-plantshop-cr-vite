@@ -4,14 +4,15 @@ export default function Search({ searchTerm, onSearchChange, onSearchSubmit }) {
     onSearchSubmit?.(); // lab mentions onSubmit
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="searchbar" onSubmit={handleSubmit}>
+      <label htmlFor="search">Search</label>
       <input
-        aria-label="search"
+        id="search"
         placeholder="Type a name to search..."
         value={searchTerm}
         onChange={e => onSearchChange(e.target.value)}
       />
-      <button type="submit">Search</button>
+      
     </form>
   );
 }
